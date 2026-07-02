@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "./Logo";
-import DesktopMenu from "./DesktopMenu";
 import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
@@ -10,14 +8,54 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-        {/* Logo */}
-        <Logo />
+        <Link
+          href="/"
+          className="text-3xl font-bold text-white"
+        >
+          🚀 SkillVerse
+        </Link>
 
-        {/* Desktop Navigation */}
-        <DesktopMenu />
+        <nav className="hidden gap-8 md:flex">
 
-        {/* Right Side */}
+          <Link
+            href="/"
+            className="text-gray-300 transition hover:text-white"
+          >
+            Home
+          </Link>
+
+          <Link
+            href="/courses"
+            className="text-gray-300 transition hover:text-white"
+          >
+            Courses
+          </Link>
+
+          <Link
+            href="/categories"
+            className="text-gray-300 transition hover:text-white"
+          >
+            Categories
+          </Link>
+
+          <Link
+            href="/pricing"
+            className="text-gray-300 transition hover:text-white"
+          >
+            Pricing
+          </Link>
+
+          <Link
+            href="/about"
+            className="text-gray-300 transition hover:text-white"
+          >
+            About
+          </Link>
+
+        </nav>
+
         <div className="flex items-center gap-3">
+
           <Link href="/login">
             <Button variant="ghost">
               Login
@@ -29,6 +67,7 @@ export default function Navbar() {
               Get Started
             </Button>
           </Link>
+
         </div>
 
       </div>
