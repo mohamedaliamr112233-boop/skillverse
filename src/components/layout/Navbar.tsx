@@ -15,7 +15,7 @@ export default function Navbar() {
           🚀 SkillVerse
         </Link>
 
-        <nav className="hidden gap-8 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
 
           <Link
             href="/"
@@ -56,17 +56,13 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
 
-          <Link href="/login">
-            <Button variant="ghost">
-              Login
-            </Button>
-          </Link>
+          <Button variant="ghost">
+            Login
+          </Button>
 
-          <Link href="/signup">
-            <Button>
-              Get Started
-            </Button>
-          </Link>
+          <Button>
+            Get Started
+          </Button>
 
         </div>
 
