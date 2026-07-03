@@ -6,6 +6,7 @@ import Features from "@/components/home/Features";
 import Categories from "@/components/home/Categories";
 import PopularCourses from "@/components/home/PopularCourses";
 import Testimonials from "@/components/home/Testimonials";
+import Pricing from "@/components/home/Pricing";
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
       <PopularCourses />
 
       <Testimonials />
+
+      <Pricing />
     </>
   );
 }
