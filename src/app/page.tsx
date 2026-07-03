@@ -8,6 +8,7 @@ import PopularCourses from "@/components/home/PopularCourses";
 import Testimonials from "@/components/home/Testimonials";
 import Pricing from "@/components/home/Pricing";
 import FAQ from "@/components/home/FAQ";
+import CTA from "@/components/home/CTA";
 
 export default function Home() {
   return (
@@ -29,6 +30,8 @@ export default function Home() {
       <Pricing />
 
       <FAQ />
+
+      <CTA />
     </>
   );
 }
