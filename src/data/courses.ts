@@ -77,4 +77,6 @@ export const courses = [
     duration: "40 Hours",
     level: "Advanced",
   },
-];
+];export function getCourseById(id: number) {
+  return courses.find((course) => course.id === id);
+}
