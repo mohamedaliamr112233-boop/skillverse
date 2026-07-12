@@ -1,46 +1,33 @@
 "use client";
 
 import CourseCard from "./CourseCard";
-
-const courses = [
-  {
-    title: "React Masterclass",
-    category: "React",
-  },
-  {
-    title: "Next.js Bootcamp",
-    category: "Next.js",
-  },
-  {
-    title: "Python Complete",
-    category: "Python",
-  },
-  {
-    title: "Cyber Security",
-    category: "Security",
-  },
-  {
-    title: "AI Fundamentals",
-    category: "AI",
-  },
-  {
-    title: "Flutter Mobile",
-    category: "Mobile",
-  },
-];
+import { useCourses } from "@/context/CourseContext";
 
 export default function CoursesGrid() {
+  const { filteredCourses } = useCourses();
+
   return (
-    <section className="mx-auto max-w-7xl px-6 py-10">
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {courses.map((course) => (
-          <CourseCard
-            key={course.title}
-            title={course.title}
-            category={course.category}
-          />
-        ))}
-      </div>
+    <section className="mx-auto max-w-7xl py-12">
+      {filteredCourses.length === 0 ? (
+        <div className="py-20 text-center">
+          <h2 className="text-3xl font-bold text-white">
+            No Courses Found 😢
+          </h2>
+
+          <p className="mt-3 text-slate-400">
+            Try searching with another keyword.
+          </p>
+        </div>
+      ) : (
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredCourses.map((course) => (
+            <CourseCard
+              key={course.id}
+              course={course}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

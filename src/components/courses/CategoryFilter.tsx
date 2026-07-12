@@ -1,28 +1,37 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useCourses } from "@/context/CourseContext";
 
 const categories = [
   "All",
-  "Web Development",
+  "React",
+  "Next.js",
   "Python",
-  "Cyber Security",
+  "Security",
+  "Flutter",
   "AI",
-  "Mobile",
 ];
 
 export default function CategoryFilter() {
+  const { category, setCategory } = useCourses();
+
   return (
-    <section className="mx-auto max-w-7xl px-6 py-6">
+    <section className="mx-auto max-w-7xl py-6">
       <div className="flex flex-wrap gap-4">
-        {categories.map((category) => (
+        {categories.map((item) => (
           <motion.button
+            key={item}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            key={category}
-            className="rounded-full border border-slate-700 bg-slate-900 px-5 py-2 text-white hover:bg-blue-600"
+            onClick={() => setCategory(item)}
+            className={`rounded-full px-5 py-2 transition font-medium ${
+              category === item
+                ? "bg-blue-600 text-white"
+                : "border border-slate-700 bg-slate-900 text-white hover:bg-slate-800"
+            }`}
           >
-            {category}
+            {item}
           </motion.button>
         ))}
       </div>

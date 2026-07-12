@@ -1,32 +1,25 @@
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/home/Footer";
-
 import CoursesHero from "@/components/courses/CoursesHero";
 import SearchBar from "@/components/courses/SearchBar";
 import CategoryFilter from "@/components/courses/CategoryFilter";
 import CoursesGrid from "@/components/courses/CoursesGrid";
-import Pagination from "@/components/courses/Pagination";
+import { CourseProvider } from "@/context/CourseContext";
 
 export default function CoursesPage() {
   return (
-    <>
-      <Navbar />
-
+    <CourseProvider>
       <main className="min-h-screen bg-slate-950 text-white">
-
         <CoursesHero />
 
-        <SearchBar />
+        <div className="mx-auto max-w-7xl px-6 py-10">
+          <SearchBar />
 
-        <CategoryFilter />
+          <div className="mt-8">
+            <CategoryFilter />
+          </div>
 
-        <CoursesGrid />
-
-        <Pagination />
-
+          <CoursesGrid />
+        </div>
       </main>
-
-      <Footer />
-    </>
+    </CourseProvider>
   );
 }

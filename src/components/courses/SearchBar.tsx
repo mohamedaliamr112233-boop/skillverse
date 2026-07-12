@@ -1,11 +1,13 @@
 "use client";
 
 import { Search } from "lucide-react";
+import { useCourses } from "@/context/CourseContext";
 
 export default function SearchBar() {
-  return (
-    <section className="mx-auto max-w-7xl px-6 py-10">
+  const { search, setSearch } = useCourses();
 
+  return (
+    <section className="mx-auto max-w-7xl py-10">
       <div className="relative">
 
         <Search
@@ -16,11 +18,12 @@ export default function SearchBar() {
         <input
           type="text"
           placeholder="Search courses..."
-          className="w-full rounded-xl border border-slate-700 bg-slate-900 py-4 pl-12 pr-4 text-white outline-none focus:border-blue-500"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full rounded-xl border border-slate-700 bg-slate-900 py-4 pl-12 pr-4 text-white outline-none transition focus:border-blue-500"
         />
 
       </div>
-
     </section>
   );
 }
